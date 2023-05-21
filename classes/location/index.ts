@@ -1,14 +1,9 @@
 export class Location {
   constructor(
-    private street: string,
     private city: string,
     private state: string,
     private country: string
   ) {}
-
-  get getStreet() {
-    return this.street;
-  }
 
   get getCity() {
     return this.city;
@@ -20,10 +15,6 @@ export class Location {
 
   get getCountry() {
     return this.country;
-  }
-
-  set setStreet(street: string) {
-    this.street = street;
   }
 
   set setCity(city: string) {
