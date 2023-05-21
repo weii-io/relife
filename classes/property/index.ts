@@ -1,8 +1,10 @@
+import { Location } from "../location";
+
 export class Property {
   constructor(
     private name: string,
     private value: number,
-    private location: string
+    private location: Location
   ) {}
 
   get getName() {
@@ -25,7 +27,7 @@ export class Property {
     this.value = value;
   }
 
-  set setLocation(location: string) {
+  set setLocation(location: Location) {
     this.location = location;
   }
 }
