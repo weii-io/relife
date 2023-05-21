@@ -1,4 +1,5 @@
 import { InventoryItem } from "../inventory-item";
+import { Location } from "../location";
 import { Property } from "../property";
 import { Skill } from "../skill";
 
@@ -11,6 +12,7 @@ export class Player {
     private wealth: number,
     private skills: Skill[],
     private inventory: InventoryItem[],
+    private currentLocation: Location,
     private properties: Property[]
   ) {}
 
@@ -44,6 +46,14 @@ export class Player {
 
   get getProperties() {
     return this.properties;
+  }
+
+  get getCurrentLocation() {
+    return this.currentLocation;
+  }
+
+  set setCurrentLocation(currentLocation: Location) {
+    this.currentLocation = currentLocation;
   }
 
   set setName(name: string) {
