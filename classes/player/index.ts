@@ -2,6 +2,7 @@ import { Character } from "../character";
 import { InventoryItem } from "../inventory-item";
 import { Location } from "../location";
 import { Property } from "../property";
+import { Relationship } from "../relationship";
 import { Skill } from "../skill";
 
 export class Player extends Character {
@@ -14,7 +15,8 @@ export class Player extends Character {
     skills: Skill[],
     inventory: InventoryItem[],
     currentLocation: Location,
-    properties: Property[]
+    properties: Property[],
+    relationships: Relationship[]
   ) {
     super(
       name,
@@ -25,7 +27,8 @@ export class Player extends Character {
       skills,
       inventory,
       currentLocation,
-      properties
+      properties,
+      relationships
     );
   }
 }

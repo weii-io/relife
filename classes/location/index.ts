@@ -1,31 +1,31 @@
 export class Location {
   constructor(
-    private city: string,
-    private state: string,
-    private country: string
+    private _city: string,
+    private _state: string,
+    private _country: string
   ) {}
 
-  get getCity() {
-    return this.city;
+  get city() {
+    return this._city;
   }
 
-  get getState() {
-    return this.state;
+  get state() {
+    return this._state;
   }
 
-  get getCountry() {
-    return this.country;
+  get country() {
+    return this._country;
   }
 
   set setCity(city: string) {
-    this.city = city;
+    this._city = city;
   }
 
   set setState(state: string) {
-    this.state = state;
+    this._state = state;
   }
 
   set setCountry(country: string) {
-    this.country = country;
+    this._country = country;
   }
 }

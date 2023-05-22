@@ -2,32 +2,32 @@ import { Location } from "../location";
 
 export class Property {
   constructor(
-    private name: string,
-    private value: number,
-    private location: Location
+    private _name: string,
+    private _value: number,
+    private _location: Location
   ) {}
 
-  get getName() {
-    return this.name;
+  get name() {
+    return this._name;
   }
 
-  get getValue() {
-    return this.value;
+  get value() {
+    return this._value;
   }
 
-  get getLocation() {
-    return this.location;
+  get location() {
+    return this._location;
   }
 
   set setName(name: string) {
-    this.name = name;
+    this._name = name;
   }
 
   set setValue(value: number) {
-    this.value = value;
+    this._value = value;
   }
 
   set setLocation(location: Location) {
-    this.location = location;
+    this._location = location;
   }
 }

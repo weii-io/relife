@@ -1,19 +1,19 @@
 export class InventoryItem {
-  constructor(private name: string, private quantity: number) {}
+  constructor(private _name: string, private _quantity: number) {}
 
-  get getName() {
-    return this.name;
+  get name() {
+    return this._name;
   }
 
-  get getQuantity() {
-    return this.quantity;
+  get quantity() {
+    return this._quantity;
   }
 
   set setName(name: string) {
-    this.name = name;
+    this._name = name;
   }
 
   set setQuantity(quantity: number) {
-    this.quantity = quantity;
+    this._quantity = quantity;
   }
 }

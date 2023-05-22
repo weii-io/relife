@@ -1,13 +1,13 @@
 import { Location } from "../location";
 
 export class World {
-  constructor(private location: Location) {}
+  constructor(private _location: Location) {}
 
-  get getLocation(): Location {
-    return this.location;
+  get location(): Location {
+    return this._location;
   }
 
-  set setLocation(location: Location) {
-    this.location = location;
+  set location(location: Location) {
+    this._location = location;
   }
 }

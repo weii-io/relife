@@ -1,114 +1,116 @@
 import { InventoryItem } from "../inventory-item";
 import { Location } from "../location";
 import { Property } from "../property";
+import { Relationship } from "../relationship";
 import { Skill } from "../skill";
 
 export class Character {
   constructor(
-    protected name: string,
-    protected age: number,
-    protected health: number,
-    protected happiness: number,
-    protected wealth: number,
-    protected skills: Skill[],
-    protected inventory: InventoryItem[],
-    protected currentLocation: Location,
-    protected properties: Property[]
+    protected _name: string,
+    protected _age: number,
+    protected _health: number,
+    protected _happiness: number,
+    protected _wealth: number,
+    protected _skills: Skill[],
+    protected _inventory: InventoryItem[],
+    protected _currentLocation: Location,
+    protected _properties: Property[],
+    protected _relationships: Relationship[]
   ) {}
 
-  get getName() {
-    return this.name;
+  get name() {
+    return this._name;
   }
 
-  get getAge() {
-    return this.age;
+  get age() {
+    return this._age;
   }
 
-  get getHealth() {
-    return this.health;
+  get health() {
+    return this._health;
   }
 
-  get getHappiness() {
-    return this.happiness;
+  get happiness() {
+    return this._happiness;
   }
 
-  get getWealth() {
-    return this.wealth;
+  get wealth() {
+    return this._wealth;
   }
 
-  get getSkills() {
-    return this.skills;
+  get skills() {
+    return this._skills;
   }
 
-  get getInventory() {
-    return this.inventory;
+  get inventory() {
+    return this._inventory;
   }
 
-  get getProperties() {
-    return this.properties;
+  get properties() {
+    return this._properties;
   }
 
-  get getCurrentLocation() {
-    return this.currentLocation;
+  get currentLocation() {
+    return this._currentLocation;
   }
 
   set setCurrentLocation(currentLocation: Location) {
-    this.currentLocation = currentLocation;
+    this._currentLocation = currentLocation;
   }
 
   set setName(name: string) {
-    this.name = name;
+    this._name = name;
   }
 
   set setAge(age: number) {
-    this.age = age;
+    this._age = age;
   }
 
   set setHealth(health: number) {
-    this.health = health;
+    this._health = health;
   }
 
   set setHappiness(happiness: number) {
-    this.happiness = happiness;
+    this._happiness = happiness;
   }
 
   set setWealth(wealth: number) {
-    this.wealth = wealth;
+    this._wealth = wealth;
   }
 
   set setSkills(skills: Skill[]) {
-    this.skills = skills;
+    this._skills = skills;
   }
 
   set setInventory(inventory: InventoryItem[]) {
-    this.inventory = inventory;
+    this._inventory = inventory;
   }
 
   set setProperties(properties: Property[]) {
-    this.properties = properties;
+    this._properties = properties;
   }
 
   public addSkill(skill: Skill) {
-    this.skills.push(skill);
+    this._skills.push(skill);
   }
 
   public addInventoryItem(inventoryItem: InventoryItem) {
-    this.inventory.push(inventoryItem);
+    this._inventory.push(inventoryItem);
   }
 
   public addProperty(property: Property) {
-    this.properties.push(property);
+    this._properties.push(property);
   }
 
   public removeSkill(skill: Skill) {
-    this.skills = this.skills.filter((s) => s !== skill);
+    this._skills = this.skills.filter((s) => s !== skill);
   }
 
   public removeInventoryItem(inventoryItem: InventoryItem) {
-    this.inventory = this.inventory.filter((i) => i !== inventoryItem);
+    this._inventory = this.inventory.filter((i) => i !== inventoryItem);
   }
 
   public removeProperty(property: Property) {
-    this.properties = this.properties.filter((p) => p !== property);
+    this._properties = this.properties.filter((p) => p !== property);
   }
 }
