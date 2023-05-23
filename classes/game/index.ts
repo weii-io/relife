@@ -1,33 +1,24 @@
-import { Character } from "../character";
 import { Player } from "../player";
 import { World } from "../world";
+import { PlayerEngine } from "./engines/player";
 import { WorldEngine } from "./engines/world";
-import Chance from "chance";
 
-const chance = new Chance();
 export class Game {
-  private world: World;
-  private characters: Character[];
-  private player: Player;
-  constructor() {
-    // initialize storage
-    // initialize world
-    this.world = new WorldEngine().generateWorld();
-    // initialize player engine
-    this.player = new Player(
-      chance.name(),
-      0,
-      100,
-      100,
-      0,
-      [],
-      [],
-      this.world.location,
-      [],
-      []
-    );
+  private _world: World;
+  private _player: Player;
 
-    this.characters = [this.player];
-    // initialize character engine
+  constructor() {
+    // initialize world
+    this._world = new WorldEngine().generateWorld();
+    // initialize player engine
+    this._player = new PlayerEngine(this._world).generatePlayer();
+  }
+
+  get world() {
+    return this._world;
+  }
+
+  get player() {
+    return this._player;
   }
 }

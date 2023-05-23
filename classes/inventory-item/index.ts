@@ -8,12 +8,4 @@ export class InventoryItem {
   get quantity() {
     return this._quantity;
   }
-
-  set setName(name: string) {
-    this._name = name;
-  }
-
-  set setQuantity(quantity: number) {
-    this._quantity = quantity;
-  }
 }

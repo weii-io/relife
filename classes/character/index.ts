@@ -54,42 +54,6 @@ export class Character {
     return this._currentLocation;
   }
 
-  set setCurrentLocation(currentLocation: Location) {
-    this._currentLocation = currentLocation;
-  }
-
-  set setName(name: string) {
-    this._name = name;
-  }
-
-  set setAge(age: number) {
-    this._age = age;
-  }
-
-  set setHealth(health: number) {
-    this._health = health;
-  }
-
-  set setHappiness(happiness: number) {
-    this._happiness = happiness;
-  }
-
-  set setWealth(wealth: number) {
-    this._wealth = wealth;
-  }
-
-  set setSkills(skills: Skill[]) {
-    this._skills = skills;
-  }
-
-  set setInventory(inventory: InventoryItem[]) {
-    this._inventory = inventory;
-  }
-
-  set setProperties(properties: Property[]) {
-    this._properties = properties;
-  }
-
   public addSkill(skill: Skill) {
     this._skills.push(skill);
   }
@@ -112,5 +76,9 @@ export class Character {
 
   public removeProperty(property: Property) {
     this._properties = this.properties.filter((p) => p !== property);
+  }
+
+  public addRelationship(relationship: Relationship) {
+    this._relationships.push(relationship);
   }
 }

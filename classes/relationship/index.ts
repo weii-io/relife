@@ -5,11 +5,11 @@ export class Relationship {
   constructor(
     private _character: Character,
     private _type: RELATIONSHIP,
-    private _level: number
+    private _closeness: number
   ) {}
 
-  get level() {
-    return this._level;
+  get closeness() {
+    return this._closeness;
   }
 
   get type() {

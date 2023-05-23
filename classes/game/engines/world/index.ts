@@ -1,20 +1,23 @@
+import { Character } from "../../../character";
 import { Location } from "../../../location";
 import { World } from "../../../world";
+import Chance from "chance";
+
+const chance = new Chance();
 
 export class WorldEngine {
   constructor() {}
 
   public generateWorld() {
-    const city = "New York City";
-    const state = "New York";
+    const state = chance.state({
+      full: true,
+    });
     const country = "United States of America";
 
-    const location = new Location(
-      "New York City",
-      "New York",
-      "United States of America"
-    );
+    const location = new Location(state, country);
 
-    return new World(location);
+    const characters: Character[] = [];
+
+    return new World(location, characters);
   }
 }

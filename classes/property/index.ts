@@ -18,16 +18,4 @@ export class Property {
   get location() {
     return this._location;
   }
-
-  set setName(name: string) {
-    this._name = name;
-  }
-
-  set setValue(value: number) {
-    this._value = value;
-  }
-
-  set setLocation(location: Location) {
-    this._location = location;
-  }
 }

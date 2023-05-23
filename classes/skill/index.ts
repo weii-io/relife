@@ -16,16 +16,4 @@ export class Skill {
   get experience() {
     return this._experience;
   }
-
-  set setName(name: string) {
-    this._name = name;
-  }
-
-  set setLevel(level: number) {
-    this._level = level;
-  }
-
-  set setExperience(experience: number) {
-    this._experience = experience;
-  }
 }
