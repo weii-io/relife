@@ -6,9 +6,10 @@ export const PlayerStats = () => {
 
   return (
     <section>
-      <h1>Player Info</h1>
-      <h2>Playar name: </h2>
-      <p>{player.name}</p>
+      <div>
+        <h1>{player.name}</h1>
+        <p>Age: {player.age}</p>
+      </div>
     </section>
   );
 };

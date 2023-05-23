@@ -10,6 +10,8 @@ export class Character {
     protected _age: number,
     protected _health: number,
     protected _happiness: number,
+    protected _looks: number,
+    protected _smarts: number,
     protected _wealth: number,
     protected _skills: Skill[],
     protected _inventory: InventoryItem[],
@@ -38,6 +40,14 @@ export class Character {
     return this._wealth;
   }
 
+  get looks() {
+    return this._looks;
+  }
+
+  get smarts() {
+    return this._smarts;
+  }
+
   get skills() {
     return this._skills;
   }
@@ -48,6 +58,10 @@ export class Character {
 
   get properties() {
     return this._properties;
+  }
+
+  get relationships() {
+    return this._relationships;
   }
 
   get currentLocation() {

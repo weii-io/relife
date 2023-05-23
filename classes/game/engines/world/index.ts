@@ -12,7 +12,7 @@ export class WorldEngine {
     const state = chance.state({
       full: true,
     });
-    const country = "United States of America";
+    const country = "United States";
 
     const location = new Location(state, country);
 

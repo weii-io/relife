@@ -2,6 +2,8 @@ import React from "react";
 import { Game } from "../classes/game";
 import { GameContext } from "../context";
 import { PlayerStats } from "../components/player";
+import { Profile } from "../components/player/profile";
+import { Relationships } from "../components/player/relationships";
 
 export default function Home() {
   const [game, setGame] = React.useState<Game | null>(null);
@@ -19,6 +21,8 @@ export default function Home() {
         }}
       >
         <PlayerStats />
+        <Profile />
+        <Relationships />
       </GameContext.Provider>
     );
   else return <p>Loading...</p>;

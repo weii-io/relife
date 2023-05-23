@@ -1,4 +1,4 @@
-import { RELATIONSHIP } from "../../enums";
+import { RELATIONSHIP } from "../../types";
 import { Character } from "../character";
 
 export class Relationship {
@@ -10,6 +10,10 @@ export class Relationship {
 
   get closeness() {
     return this._closeness;
+  }
+
+  get character() {
+    return this._character;
   }
 
   get type() {

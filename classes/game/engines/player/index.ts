@@ -29,23 +29,27 @@ export class PlayerEngine {
     return new Character(
       // same last name as child
       `${chance.first()} ${to.name.split(" ")[1]}`,
-      // age is 20-40 years older than child
-      to.age + chance.integer({ min: 20, max: 40 }),
-      // health is 50-100
+      // age between 20 and 50
+      chance.integer({ min: 20, max: 50 }),
+      // health between 50 and 100
       chance.integer({ min: 50, max: 100 }),
-      // happiness is 50-100
+      // happiness between 50 and 100
       chance.integer({ min: 50, max: 100 }),
-      // wealth is 0-100
+      // looks between 50 and 100
+      chance.integer({ min: 50, max: 100 }),
+      // smarts between 50 and 100
+      chance.integer({ min: 50, max: 100 }),
+      // wealth between 0 and 100
       chance.integer({ min: 0, max: 100 }),
-      // skills is []
+      // no skills
       [],
-      // inventory is []
+      // no inventory
       [],
-      // current location is same as child
+      // same location as child
       to.currentLocation,
-      // properties is []
+      // no properties
       [],
-      // relationships is []
+      // relationship with child
       [
         new Relationship(
           to,
@@ -60,8 +64,10 @@ export class PlayerEngine {
     const player = new Player(
       chance.name(),
       0,
-      chance.integer({ min: 50, max: 100 }),
       100,
+      100,
+      chance.integer({ min: 50, max: 100 }),
+      chance.integer({ min: 50, max: 100 }),
       0,
       [],
       [],
