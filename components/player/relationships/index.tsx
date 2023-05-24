@@ -18,7 +18,6 @@ export const Relationships = () => {
           .map((relationship, index) => (
             <div key={index}>
               <p>{relationship.character.name}</p>
-              <p>{relationship.type}</p>
               <p>Closeness: {relationship.closeness}</p>
             </div>
           ))}
