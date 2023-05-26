@@ -8,6 +8,7 @@ import { InventoryItem } from "../../../inventory-item";
 import { Location } from "../../../location";
 import { Property } from "../../../property";
 import { ISerializedCharacter } from "../../../../interface";
+import { GENDER } from "../../../../types";
 
 const chance = new Chance();
 
@@ -32,10 +33,13 @@ export class PlayerEngine {
     });
   }
 
-  public generateParent(to: Character): Character {
+  public generateParent(child: Character): Character {
+    const gender: GENDER = chance.pickone(["male", "female"]);
     const parent = new Character(
       // same last name as child
-      `${chance.first()} ${to.name.split(" ")[1]}`,
+      `${chance.first({
+        gender: gender,
+      })} ${child.name.split(" ")[1]}`,
       // age between 20 and 50
       chance.integer({ min: 20, max: 50 }),
       // health between 50 and 100
@@ -53,16 +57,20 @@ export class PlayerEngine {
       // no inventory
       [],
       // same location as child
-      to.currentLocation,
+      child.currentLocation,
       // no properties
-      []
+      [],
+      gender
     );
     return parent;
   }
 
   public generateNewPlayer() {
+    const gender: GENDER = chance.pickone(["male", "female"]);
     const player = new Player(
-      chance.name(),
+      chance.name({
+        gender: gender,
+      }),
       0,
       100,
       100,
@@ -72,7 +80,8 @@ export class PlayerEngine {
       [],
       [],
       this.world.location,
-      []
+      [],
+      gender
     );
     this.world.addCharacter(player);
     this.randomizeParent(player);
@@ -105,7 +114,8 @@ export class PlayerEngine {
             property._value,
             new Location(property._location._state, property._location._country)
           )
-      )
+      ),
+      existingPlayer._gender
     );
   }
 }

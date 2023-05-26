@@ -1,3 +1,4 @@
+import { GENDER } from "../../../../types";
 import { Character } from "../../../character";
 import { InventoryItem } from "../../../inventory-item";
 import { Location } from "../../../location";
@@ -22,6 +23,7 @@ export class CharactersEngine {
       _value: number;
       _location: { _state: string; _country: string };
     }[];
+    _gender: GENDER;
   }) {
     return new Character(
       existingCharacter._name,
@@ -48,7 +50,8 @@ export class CharactersEngine {
             property._value,
             new Location(property._location._state, property._location._country)
           )
-      )
+      ),
+      existingCharacter._gender
     );
   }
 }
