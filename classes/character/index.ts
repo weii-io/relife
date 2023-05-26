@@ -34,12 +34,20 @@ export class Character {
     return this._health;
   }
 
+  set health(health: number) {
+    this._health = health;
+  }
+
   get happiness() {
     return this._happiness;
   }
 
   get wealth() {
     return this._wealth;
+  }
+
+  set wealth(wealth: number) {
+    this._wealth = wealth;
   }
 
   get looks() {
@@ -100,14 +108,5 @@ export class Character {
 
   serialize() {
     return CircularJson.stringify(this);
-  }
-
-  equals(other: Character): boolean {
-    console.log(this.serialize(), other.serialize());
-    return this.serialize() === other.serialize();
-  }
-
-  hashCode(): string {
-    return this.serialize(); // A simple example of generating a hash code
   }
 }

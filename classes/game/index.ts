@@ -26,6 +26,9 @@ export class Game {
       this._world = new WorldEngine().generateNewWorld();
       this._player = new PlayerEngine(this._world).generateNewPlayer();
     }
+
+    console.log(this._world);
+    console.log(this.player);
   }
 
   get world() {
