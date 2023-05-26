@@ -1,8 +1,8 @@
 import { InventoryItem } from "../inventory-item";
 import { Location } from "../location";
 import { Property } from "../property";
-import { Relationship } from "../relationship";
 import { Skill } from "../skill";
+import CircularJson from "circular-json";
 
 export class Character {
   constructor(
@@ -16,8 +16,7 @@ export class Character {
     protected _skills: Skill[],
     protected _inventory: InventoryItem[],
     protected _currentLocation: Location,
-    protected _properties: Property[],
-    protected _relationships: Relationship[]
+    protected _properties: Property[]
   ) {}
 
   get name() {
@@ -60,10 +59,6 @@ export class Character {
     return this._properties;
   }
 
-  get relationships() {
-    return this._relationships;
-  }
-
   get currentLocation() {
     return this._currentLocation;
   }
@@ -92,7 +87,16 @@ export class Character {
     this._properties = this.properties.filter((p) => p !== property);
   }
 
-  public addRelationship(relationship: Relationship) {
-    this._relationships.push(relationship);
+  serialize() {
+    return CircularJson.stringify(this);
+  }
+
+  equals(other: Character): boolean {
+    console.log(this.serialize(), other.serialize());
+    return this.serialize() === other.serialize();
+  }
+
+  hashCode(): string {
+    return this.serialize(); // A simple example of generating a hash code
   }
 }
