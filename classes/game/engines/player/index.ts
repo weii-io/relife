@@ -60,7 +60,8 @@ export class PlayerEngine {
       child.currentLocation,
       // no properties
       [],
-      gender
+      gender,
+      0
     );
     return parent;
   }
@@ -81,7 +82,8 @@ export class PlayerEngine {
       [],
       this.world.location,
       [],
-      gender
+      gender,
+      0
     );
     this.world.addCharacter(player);
     this.randomizeParent(player);
@@ -115,7 +117,8 @@ export class PlayerEngine {
             new Location(property._location._state, property._location._country)
           )
       ),
-      existingPlayer._gender
+      existingPlayer._gender,
+      existingPlayer._knowledge
     );
   }
 }

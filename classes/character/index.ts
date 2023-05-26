@@ -18,7 +18,8 @@ export class Character {
     protected _inventory: InventoryItem[],
     protected _currentLocation: Location,
     protected _properties: Property[],
-    protected _gender: GENDER
+    protected _gender: GENDER,
+    protected _knowledge: number
   ) {}
 
   get name() {
@@ -51,6 +52,10 @@ export class Character {
 
   get skills() {
     return this._skills;
+  }
+
+  get knowledge() {
+    return this._knowledge;
   }
 
   get inventory() {

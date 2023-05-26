@@ -17,4 +17,5 @@ export interface ISerializedCharacter {
   _currentLocation: ISerializedLocation;
   _properties: ISerializedProperty[];
   _gender: GENDER;
+  _knowledge: number;
 }

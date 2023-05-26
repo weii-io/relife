@@ -1,3 +1,4 @@
+import { ISerializedCharacter } from "../../../../interface";
 import { GENDER } from "../../../../types";
 import { Character } from "../../../character";
 import { InventoryItem } from "../../../inventory-item";
@@ -7,24 +8,7 @@ import { Skill } from "../../../skill";
 
 export class CharactersEngine {
   constructor() {}
-  public generateExistingCharacter(existingCharacter: {
-    _name: string;
-    _age: number;
-    _health: number;
-    _happiness: number;
-    _looks: number;
-    _smarts: number;
-    _wealth: number;
-    _skills: { _name: string; _level: number; _experience: number }[];
-    _inventory: { _name: string; _quantity: number }[];
-    _currentLocation: { _state: string; _country: string };
-    _properties: {
-      _name: string;
-      _value: number;
-      _location: { _state: string; _country: string };
-    }[];
-    _gender: GENDER;
-  }) {
+  public generateExistingCharacter(existingCharacter: ISerializedCharacter) {
     return new Character(
       existingCharacter._name,
       existingCharacter._age,
@@ -51,7 +35,8 @@ export class CharactersEngine {
             new Location(property._location._state, property._location._country)
           )
       ),
-      existingCharacter._gender
+      existingCharacter._gender,
+      0
     );
   }
 }
