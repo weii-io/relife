@@ -1,1 +1,1 @@
-export type RELATIONSHIP = "family" | "friend" | "parent";
+export type RELATIONSHIP = "family" | "friend" | "parent" | "child";

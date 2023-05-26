@@ -3,30 +3,37 @@ import { Player } from "../../../player";
 import Chance from "chance";
 import { World } from "../../../world";
 import { Relationship } from "../../../relationship";
-import { RELATIONSHIP } from "../../../../enums";
+import { Skill } from "../../../skill";
+import { InventoryItem } from "../../../inventory-item";
+import { Location } from "../../../location";
+import { Property } from "../../../property";
+import { ISerializedCharacter } from "../../../../interface";
 
 const chance = new Chance();
 
 export class PlayerEngine {
   constructor(private world: World) {}
 
-  public randomizeParent(to: Character) {
+  public randomizeParent(child: Character) {
     const random = chance.integer({ min: 0, max: 2 });
     Array.from({ length: random }).forEach((_) => {
-      const parent = this.generateParent(to);
+      const parent = this.generateParent(child);
       this.world.addCharacter(parent);
-      to.addRelationship(
-        new Relationship(
-          parent,
-          RELATIONSHIP.PARENT,
-          chance.integer({ min: 50, max: 100 })
-        )
+      this.world.addRelationship(
+        child,
+        parent,
+        new Relationship("child", chance.integer({ min: 50, max: 100 }))
+      );
+      this.world.addRelationship(
+        parent,
+        child,
+        new Relationship("parent", chance.integer({ min: 50, max: 100 }))
       );
     });
   }
 
   public generateParent(to: Character): Character {
-    return new Character(
+    const parent = new Character(
       // same last name as child
       `${chance.first()} ${to.name.split(" ")[1]}`,
       // age between 20 and 50
@@ -48,19 +55,12 @@ export class PlayerEngine {
       // same location as child
       to.currentLocation,
       // no properties
-      [],
-      // relationship with child
-      [
-        new Relationship(
-          to,
-          RELATIONSHIP.PARENT,
-          chance.integer({ min: 50, max: 100 })
-        ),
-      ]
+      []
     );
+    return parent;
   }
 
-  public generatePlayer() {
+  public generateNewPlayer() {
     const player = new Player(
       chance.name(),
       0,
@@ -72,11 +72,40 @@ export class PlayerEngine {
       [],
       [],
       this.world.location,
-      [],
       []
     );
     this.world.addCharacter(player);
     this.randomizeParent(player);
     return player;
+  }
+
+  public generateExistingPlayer(existingPlayer: ISerializedCharacter) {
+    return new Player(
+      existingPlayer._name,
+      existingPlayer._age,
+      existingPlayer._health,
+      existingPlayer._happiness,
+      existingPlayer._looks,
+      existingPlayer._smarts,
+      existingPlayer._wealth,
+      existingPlayer._skills.map(
+        (skill) => new Skill(skill._name, skill._level, skill._experience)
+      ),
+      existingPlayer._inventory.map(
+        (item) => new InventoryItem(item._name, item._quantity)
+      ),
+      new Location(
+        existingPlayer._currentLocation._state,
+        existingPlayer._currentLocation._country
+      ),
+      existingPlayer._properties.map(
+        (property) =>
+          new Property(
+            property._name,
+            property._value,
+            new Location(property._location._state, property._location._country)
+          )
+      )
+    );
   }
 }

@@ -17,8 +17,7 @@ export class Player extends Character {
     skills: Skill[],
     inventory: InventoryItem[],
     currentLocation: Location,
-    properties: Property[],
-    relationships: Relationship[]
+    properties: Property[]
   ) {
     super(
       name,
@@ -31,8 +30,7 @@ export class Player extends Character {
       skills,
       inventory,
       currentLocation,
-      properties,
-      relationships
+      properties
     );
   }
 }

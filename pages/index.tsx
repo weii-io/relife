@@ -12,6 +12,13 @@ export default function Home() {
     if (!game) setGame(new Game());
   }, []);
 
+  React.useEffect(() => {
+    // save gave to storage
+    if (game) {
+      game.save();
+    }
+  }, [game]);
+
   if (game)
     return (
       <GameContext.Provider
