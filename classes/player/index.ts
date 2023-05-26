@@ -1,3 +1,4 @@
+import { GENDER } from "../../types";
 import { Character } from "../character";
 import { InventoryItem } from "../inventory-item";
 import { Location } from "../location";
@@ -17,7 +18,8 @@ export class Player extends Character {
     skills: Skill[],
     inventory: InventoryItem[],
     currentLocation: Location,
-    properties: Property[]
+    properties: Property[],
+    gender: GENDER
   ) {
     super(
       name,
@@ -30,7 +32,8 @@ export class Player extends Character {
       skills,
       inventory,
       currentLocation,
-      properties
+      properties,
+      gender
     );
   }
 }

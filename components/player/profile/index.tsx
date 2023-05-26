@@ -11,6 +11,7 @@ export const Profile = () => {
         <p>{player.name}</p>
         <h1>Profile</h1>
         <p>Age: {player.age}</p>
+        <p style={{ textTransform: "capitalize" }}>Gender: {player.gender}</p>
         <p>
           <span>Location: </span>
           <span>

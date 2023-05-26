@@ -1,3 +1,4 @@
+import { GENDER } from "../../types";
 import { InventoryItem } from "../inventory-item";
 import { Location } from "../location";
 import { Property } from "../property";
@@ -16,7 +17,8 @@ export class Character {
     protected _skills: Skill[],
     protected _inventory: InventoryItem[],
     protected _currentLocation: Location,
-    protected _properties: Property[]
+    protected _properties: Property[],
+    protected _gender: GENDER
   ) {}
 
   get name() {
@@ -61,6 +63,10 @@ export class Character {
 
   get currentLocation() {
     return this._currentLocation;
+  }
+
+  get gender() {
+    return this._gender;
   }
 
   public addSkill(skill: Skill) {

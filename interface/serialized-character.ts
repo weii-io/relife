@@ -1,3 +1,4 @@
+import { GENDER } from "../types";
 import { ISerializedInventoryItem } from "./serialized-inventory-item";
 import { ISerializedLocation } from "./serialized-location";
 import { ISerializedProperty } from "./serialized-property";
@@ -15,4 +16,5 @@ export interface ISerializedCharacter {
   _inventory: ISerializedInventoryItem[];
   _currentLocation: ISerializedLocation;
   _properties: ISerializedProperty[];
+  _gender: GENDER;
 }
