@@ -1,5 +1,4 @@
 import { ISerializedCharacter } from "../../../../interface";
-import { GENDER } from "../../../../types";
 import { Character } from "../../../character";
 import { InventoryItem } from "../../../inventory-item";
 import { Location } from "../../../location";

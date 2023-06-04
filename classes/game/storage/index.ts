@@ -6,7 +6,37 @@ export class Storage {
 
   constructor() {}
 
-  public write(instance: Object) {
+  public writeArray(array: Array<any>, key: string) {
+    const existingEncryptedData = localStorage.getItem(Storage.STORAGE_KEY);
+    if (existingEncryptedData) {
+      const existingDecryptedData = CryptoJS.AES.decrypt(
+        existingEncryptedData as string,
+        process.env.NEXT_PUBLIC_CRYPTOJS_ENCRYPTION_KEY as string
+      ).toString(CryptoJS.enc.Utf8);
+      localStorage.setItem(
+        Storage.STORAGE_KEY,
+        CryptoJS.AES.encrypt(
+          CircularJson.stringify({
+            [key]: array,
+            ...CircularJson.parse(existingDecryptedData),
+          }),
+          process.env.NEXT_PUBLIC_CRYPTOJS_ENCRYPTION_KEY as string
+        ).toString()
+      );
+    } else {
+      localStorage.setItem(
+        Storage.STORAGE_KEY,
+        CryptoJS.AES.encrypt(
+          CircularJson.stringify({
+            [key]: array,
+          }),
+          process.env.NEXT_PUBLIC_CRYPTOJS_ENCRYPTION_KEY as string
+        ).toString()
+      );
+    }
+  }
+
+  public writeObject(instance: Object) {
     const existingEncryptedData = localStorage.getItem(Storage.STORAGE_KEY);
     if (existingEncryptedData) {
       const existingDecryptedData = CryptoJS.AES.decrypt(
