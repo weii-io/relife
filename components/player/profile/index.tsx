@@ -23,6 +23,10 @@ export const Profile = () => {
         <p>Health: {player.health}</p>
         <p>Smarts: {player.smarts}</p>
         <p>Looks: {player.looks}</p>
+        <p>
+          Profession:{" "}
+          {player.profession.length === 0 ? "Unemployed" : player.profession}
+        </p>
         <button onClick={() => dialog.current?.close()}>Close</button>
       </dialog>
     </>

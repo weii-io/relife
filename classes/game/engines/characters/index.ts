@@ -4,7 +4,9 @@ import { InventoryItem } from "../../../inventory-item";
 import { Location } from "../../../location";
 import { Property } from "../../../property";
 import { Skill } from "../../../skill";
+import Chance from "chance";
 
+const chance = new Chance();
 export class CharactersEngine {
   constructor() {}
   public generateExistingCharacter(existingCharacter: ISerializedCharacter) {
@@ -35,7 +37,8 @@ export class CharactersEngine {
           )
       ),
       existingCharacter._gender,
-      0
+      0,
+      chance.profession()
     );
   }
 }
