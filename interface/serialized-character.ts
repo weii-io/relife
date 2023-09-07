@@ -18,4 +18,5 @@ export interface ISerializedCharacter {
   _properties: ISerializedProperty[];
   _gender: GENDER;
   _knowledge: number;
+  _profession: string;
 }

@@ -61,7 +61,8 @@ export class PlayerEngine {
       // no properties
       [],
       gender,
-      0
+      0,
+      chance.profession()
     );
     return parent;
   }
@@ -83,7 +84,8 @@ export class PlayerEngine {
       this.world.location,
       [],
       gender,
-      0
+      0,
+      ""
     );
     this.world.addCharacter(player);
     this.randomizeParent(player);
@@ -118,7 +120,8 @@ export class PlayerEngine {
           )
       ),
       existingPlayer._gender,
-      existingPlayer._knowledge
+      existingPlayer._knowledge,
+      existingPlayer._profession
     );
   }
 }

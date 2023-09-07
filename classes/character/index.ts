@@ -19,7 +19,8 @@ export class Character {
     protected _currentLocation: Location,
     protected _properties: Property[],
     protected _gender: GENDER,
-    protected _knowledge: number
+    protected _knowledge: number,
+    protected _profession: string
   ) {}
 
   get name() {
@@ -80,6 +81,10 @@ export class Character {
 
   get gender() {
     return this._gender;
+  }
+
+  get profession() {
+    return this._profession;
   }
 
   public addSkill(skill: Skill) {
